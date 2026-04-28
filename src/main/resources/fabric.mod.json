@@ -3,13 +3,13 @@
 	"id": "calhas-moles",
 	"version": "${version}",
 	"name": "Calha's Moles",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A mod that adds Moles to your Minecraft world!",
 	"authors": [
-		"Me!"
+		"Gabriel Brilha, Rafael Pedro, Pedro Morgado"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": "https://github.com/gabrielbrilha/calhas-moles/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/calhas-moles/icon.png",
