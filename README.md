@@ -1,6 +1,6 @@
-Calha's Moles
+# Calha's Moles
 
-# A mod that adds Moles to your Minecraft world!
+A mod that adds Moles to your Minecraft world!
 
 ### Requirements
 
