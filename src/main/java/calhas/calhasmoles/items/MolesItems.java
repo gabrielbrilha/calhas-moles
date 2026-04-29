@@ -25,9 +25,10 @@ public class MolesItems {
     public static final Item WORM = registerItem("worm", Item::new, new Item.Properties());
     public static final ResourceKey<CreativeModeTab> customCreativeTabKey =
             ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(CalhasMoles.MOD_ID, "creative_tab"));
+
     public static final CreativeModeTab customCreativeTab = FabricCreativeModeTab.builder()
             .icon(() -> new ItemStack(MolesItems.WORM))
-            .title(Component.translatable("Calhas Moles"))
+            .title(Component.translatable("creativeModeTab.MolesTab"))
             .displayItems((items, output) -> {
 
                 output.accept(MolesItems.WORM);
@@ -47,6 +48,7 @@ public class MolesItems {
 
     // Mock initialize method
     public static void initialize(){
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, customCreativeTabKey, customCreativeTab);
 
     }
 }

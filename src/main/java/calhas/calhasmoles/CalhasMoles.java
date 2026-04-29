@@ -22,7 +22,5 @@ public class CalhasMoles implements ModInitializer {
 
 		//Initialize Items class
 		MolesItems.initialize();
-
-		LOGGER.info("Hello Fabric world!");
 	}
 }
