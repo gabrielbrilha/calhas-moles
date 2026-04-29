@@ -1,6 +1,7 @@
 package calhas.calhasmoles;
 
 import calhas.calhasmoles.items.MolesItems;
+import calhas.calhasmoles.entity.ModEntityTypes;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -20,7 +21,11 @@ public class CalhasMoles implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		//Initialize Items class
+		// Initialize items
 		MolesItems.initialize();
+
+		// Register entity types and their default attributes
+		ModEntityTypes.registerModEntityTypes();
+		ModEntityTypes.registerAttributes();
 	}
 }
