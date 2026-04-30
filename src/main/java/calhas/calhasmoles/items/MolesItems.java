@@ -8,9 +8,16 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.minecraft.world.item.consume_effects.ConsumeEffect;
 
 
 import java.util.function.Function;
@@ -21,11 +28,18 @@ import java.util.function.Function;
  * Register item in registries
  */
 public class MolesItems {
+    // Poison effect from eating poisonous food that lasts around 2 seconds with a probability of 80%
+    // of proccing
+    public static final Consumable poisonFoodComponent = Consumables.defaultFood().onConsume(
+            new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 2*20, 1), 0.80f)).build();
+    // Worms are a food item that have a chance of poisoning the player upon being eaten. This food
+    // item fills half a hunger icon.
+    public static final Item WORM = registerItem("worm", Item::new, new Item.Properties().
+            food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.8f).build(), poisonFoodComponent));
 
-    public static final Item WORM = registerItem("worm", Item::new, new Item.Properties());
+    // Attributes for custom tab creation
     public static final ResourceKey<CreativeModeTab> customCreativeTabKey =
             ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(CalhasMoles.MOD_ID, "creative_tab"));
-
     public static final CreativeModeTab customCreativeTab = FabricCreativeModeTab.builder()
             .icon(() -> new ItemStack(MolesItems.WORM))
             .title(Component.translatable("creativeModeTab.MolesTab"))
@@ -37,9 +51,7 @@ public class MolesItems {
     public static <T extends Item> T registerItem(String itemName, Function<Item.Properties, T> itemFactory, Item.Properties settings){
 
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CalhasMoles.MOD_ID, itemName));
-
         T item = itemFactory.apply(settings.setId(itemKey));
-
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 
         return item;
