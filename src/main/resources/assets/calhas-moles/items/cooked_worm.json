@@ -1,0 +1,6 @@
+{
+  "model":{
+    "type": "minecraft:model",
+    "model": "calhas-moles:item/cooked_worm"
+  }
+}

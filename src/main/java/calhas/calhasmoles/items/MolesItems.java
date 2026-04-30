@@ -17,9 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-import net.minecraft.world.item.consume_effects.ConsumeEffect;
-
-
 import java.util.function.Function;
 
 /**
@@ -35,7 +32,11 @@ public class MolesItems {
     // Worms are a food item that have a chance of poisoning the player upon being eaten. This food
     // item fills half a hunger icon.
     public static final Item WORM = registerItem("worm", Item::new, new Item.Properties().
-            food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.8f).build(), poisonFoodComponent));
+            food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.2f).build(), poisonFoodComponent));
+
+    // Cooked worm, does not proc poison. Fills a full hunger icon
+    public static final Item COOKED_WORM = registerItem("cooked_worm", Item::new, new Item.Properties().food(
+            new FoodProperties.Builder().nutrition(2).saturationModifier(0.5f).build()));
 
     // Attributes for custom tab creation
     public static final ResourceKey<CreativeModeTab> customCreativeTabKey =
@@ -46,6 +47,7 @@ public class MolesItems {
             .displayItems((items, output) -> {
 
                 output.accept(MolesItems.WORM);
+                output.accept(MolesItems.COOKED_WORM);
             }).build();
 
     public static <T extends Item> T registerItem(String itemName, Function<Item.Properties, T> itemFactory, Item.Properties settings){
