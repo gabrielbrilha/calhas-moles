@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "calhas-moles:item/mole_claw_shard"
+  }
+}

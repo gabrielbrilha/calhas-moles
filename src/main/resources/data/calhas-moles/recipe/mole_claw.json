@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "calhas-moles:mole_claw_shard",
+    "B": "minecraft:leather"
+  },
+  "pattern": [
+    "   ",
+    "AAA",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "calhas-moles:mole_claw"
+  }
+}

@@ -38,6 +38,13 @@ public class MolesItems {
     public static final Item COOKED_WORM = registerItem("cooked_worm", Item::new, new Item.Properties().food(
             new FoodProperties.Builder().nutrition(2).saturationModifier(0.5f).build()));
 
+    // Shard of a mole's claw
+    // Used for crafting the mole claw item
+    public static final Item MOLE_CLAW_SHARD = registerItem("mole_claw_shard", Item::new, new Item.Properties());
+
+    // Claw of a mole
+    public static final Item MOLE_CLAW = registerItem("mole_claw", Item::new, new Item.Properties());
+
     // Attributes for custom tab creation
     public static final ResourceKey<CreativeModeTab> customCreativeTabKey =
             ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(CalhasMoles.MOD_ID, "creative_tab"));
@@ -48,6 +55,8 @@ public class MolesItems {
 
                 output.accept(MolesItems.WORM);
                 output.accept(MolesItems.COOKED_WORM);
+                output.accept(MolesItems.MOLE_CLAW_SHARD);
+                output.accept(MolesItems.MOLE_CLAW);
             }).build();
 
     public static <T extends Item> T registerItem(String itemName, Function<Item.Properties, T> itemFactory, Item.Properties settings){

@@ -1,5 +1,7 @@
 {
   "item.calhas-moles.worm": "Worm",
   "item.calhas-moles.cooked_worm": "Cooked Worm",
-  "creativeModeTab.MolesTab": "CalhasMolesPack"
+  "item.calhas-moles.mole_claw_shard":"Mole Claw Shard",
+  "item.calhas-moles.mole_claw": "Mole Claw",
+  "creativeModeTab.MolesTab": "Calhas Moles Pack"
 }
